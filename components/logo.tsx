@@ -8,3 +8,4 @@ const Logo = () => {
     </Link>
   );
 };
+export default Logo;
