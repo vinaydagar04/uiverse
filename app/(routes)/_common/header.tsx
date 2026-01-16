@@ -56,13 +56,13 @@ const Header = () => {
             >
               <SunIcon
                 className={cn(
-                  "absolute h-5 w-5 transition",
+                  "absolute h-5 w-5 transition  ",
                   isDark ? "scale-100" : "scale-0"
                 )}
               />
               <MoonIcon
                 className={cn(
-                  "absolute h-5 w-5 transition",
+                  "absolute h-5 w-5 transition ",
                   isDark ? "scale-0" : "scale-100"
                 )}
               />
