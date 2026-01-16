@@ -3,8 +3,11 @@ import { Suggestion, Suggestions } from "@/components/ai-elements/suggestion";
 import PromptInput from "@/components/prompt-input";
 import React, { useState } from "react";
 import Header from "./header";
+import { useCreateProject } from "@/features/use-project";
 const LandingSection = () => {
   const [promptText, setPromptText] = useState<string>("");
+
+  const { mutate, isPending } = useCreateProject();
 
   const suggestions = [
     {
@@ -41,6 +44,11 @@ const LandingSection = () => {
 
   const handleSuggestionClick = (val: string) => {
     setPromptText(val);
+  };
+
+  const handleSubmit = () => {
+    if (!promptText) return;
+    mutate(promptText);
   };
   return (
     <div className="w-full  min-h-screen ">
@@ -80,7 +88,7 @@ const LandingSection = () => {
                   promptText={promptText}
                   setPromptText={setPromptText}
                   isLoading={false}
-                  onSubmit={() => {}}
+                  onSubmit={handleSubmit}
                 />
               </div>
               <div className="flex flex-wrap justify-center gap-2 px-5">
