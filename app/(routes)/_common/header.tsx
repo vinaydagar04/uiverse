@@ -1,25 +1,25 @@
 "use client";
-// import { useKindeBrowserClient } from "@kinde-oss/kinde-auth-nextjs";
+import { useKindeBrowserClient } from "@kinde-oss/kinde-auth-nextjs";
 import Logo from "@/components/logo";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-// import { LoginLink, LogoutLink } from "@kinde-oss/kinde-auth-nextjs/components";
+import { LoginLink, LogoutLink } from "@kinde-oss/kinde-auth-nextjs/components";
 import { LogOutIcon, MoonIcon, SunIcon } from "lucide-react";
 import { useTheme } from "next-themes";
 import Link from "next/link";
-// import {
-//   DropdownMenu,
-//   DropdownMenuContent,
-//   DropdownMenuTrigger,
-//   DropdownMenuItem,
-//   DropdownMenuLabel,
-//   DropdownMenuSeparator,
-// } from "@/components/ui/dropdown-menu";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuTrigger,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+} from "@/components/ui/dropdown-menu";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
 const Header = () => {
   const { theme, setTheme } = useTheme();
-  //   const { user } = useKindeBrowserClient();
+  const { user } = useKindeBrowserClient();
   const isDark = theme === "dark";
   return (
     <div className="sticky top-0 right-0 left-0 z-30">
@@ -67,7 +67,7 @@ const Header = () => {
                 )}
               />
             </Button>
-            {/* {user ? (
+            {user ? (
               <DropdownMenu>
                 <DropdownMenuTrigger>
                   <Avatar
@@ -99,7 +99,7 @@ const Header = () => {
               <LoginLink>
                 <Button>Sign in</Button>
               </LoginLink>
-            )} */}
+            )}
           </div>
         </div>
       </header>
