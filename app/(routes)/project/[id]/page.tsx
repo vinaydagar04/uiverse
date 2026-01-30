@@ -4,6 +4,7 @@ import { useGetProjectId } from "@/features/use-project-id";
 import { useParams } from "next/navigation";
 import Header from "./_common/header";
 import Canvas from "@/components/canvas";
+import { CanvasProvider } from "@/context/canvas-context";
 
 const Page = () => {
   const params = useParams();
@@ -26,10 +27,14 @@ const Page = () => {
         hasInitialData={hasInitialData}
         projectId={project?.id}
       >
-        <div className="flex w-full overflow-hidden">
+        <div className="flex flex-1 overflow-hidden">
           <div className="relative">
             {" "}
-            <Canvas />
+            <Canvas
+              projectId={project?.id}
+              projectName={project?.name}
+              isPending={isPending}
+            />
           </div>
         </div>
       </CanvasProvider>
