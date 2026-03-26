@@ -2,6 +2,7 @@ import { LoadingStatusType, useCanvas } from "@/context/canvas-context";
 import { cn } from "@/lib/utils";
 import React from "react";
 import { Spinner } from "../ui/spinner";
+import CanvasFloatingToolbar from "./canvas-floating-toolbar";
 
 const Canvas = ({
   projectId,
@@ -22,8 +23,18 @@ const Canvas = ({
       : null;
   return (
     <div className="relative w-full h-full overflow-hidden">
-      {/* <FloatingToolBar /> */}
+      <CanvasFloatingToolbar />
       {currentStatus && <CanvasLoader status={currentStatus} />}
+      <div
+        className={cn(
+          `absolute inset-0 w-full bg-[#eee] dark:bg-[#242423] p-3`,
+        )}
+        style={{
+          backgroundImage:
+            "radial-gradient(circle, var(--primary)) 1px transparent 1px",
+          backgroundSize: "20px 20px",
+        }}
+      ></div>
     </div>
   );
 };
