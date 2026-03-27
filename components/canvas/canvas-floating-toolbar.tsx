@@ -3,11 +3,12 @@ import { useCanvas } from "@/context/canvas-context";
 import React, { useState } from "react";
 import { Popover, PopoverContent, PopoverTrigger } from "../ui/popover";
 import { Button } from "../ui/button";
-import { ChevronDown, Palette, Wand2 } from "lucide-react";
+import { CameraIcon, ChevronDown, Palette, Save, Wand2 } from "lucide-react";
 import PromptInput from "../prompt-input";
 import { parseThemeColors } from "@/lib/themes";
 import { cn } from "@/lib/utils";
 import ThemeSelector from "./theme-selector";
+import { Separator } from "../ui/separator";
 
 const CanvasFloatingToolbar = () => {
   const { themes, theme: currentTheme, setTheme } = useCanvas();
@@ -75,6 +76,25 @@ const CanvasFloatingToolbar = () => {
               <ThemeSelector />
             </PopoverContent>
           </Popover>
+
+          {/* Divider */}
+          <Separator orientation="vertical" className="h-4!" />
+          <div className="flex items-center gap-2">
+            <Button
+              variant="outline"
+              size="icon-sm"
+              className=" rounded-full cursor-pointer"
+            >
+              <CameraIcon className="size-4.5" />
+            </Button>
+            <Button
+              variant="default"
+              size="sm"
+              className=" rounded-full cursor-pointer"
+            >
+              <Save className="size-4" />
+            </Button>
+          </div>
         </div>
       </div>
     </div>
